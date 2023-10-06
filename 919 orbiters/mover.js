@@ -1,5 +1,5 @@
-//  Bubble constructor function +++++++++++++++++++++++++++++
 function Mover(x, y, dx, dy, diam) {
+
 
   this.diam = diam;
   this.clr = "rgba(255,255,255,255)";
@@ -9,18 +9,24 @@ function Mover(x, y, dx, dy, diam) {
   this.loc = new JSVector(x, y);
   this.numOrbiters = 4;
   this.orbiters = [];
-  // for (let i = 0; i < this.numOrbiters; i++) {
-  this.orbiters.push(new Orbiter(this));
-  // }
+   for (let i = 0; i < this.numOrbiters; i++) {
+  this.orbiters.push(new Orbiter(this, i * (2*Math.PI) / this.numOrbiters ));
+  }
+ // this.orbiter = new Orbiter(this, );
 }
 
+
 Mover.prototype.run = function () {
+
 
   this.update();
   this.checkEdges();
   this.render();
+  this.runOrbiters();
+
 
 }
+
 
 //  Check to see if buuble leaves canvas area and reposition in necessary
 Mover.prototype.checkEdges = function () {
@@ -38,6 +44,7 @@ Mover.prototype.checkEdges = function () {
   }
 }
 
+
 // renders a bubble to the canvas
 Mover.prototype.render = function () {
   context.beginPath();
@@ -48,8 +55,16 @@ Mover.prototype.render = function () {
   context.stroke();
 }
 
+
 Mover.prototype.update = function () {
   this.vel.add(this.acc);
   this.loc.add(this.vel)
 }
 
+
+Mover.prototype.runOrbiters = function() {
+  for (let i = 0; i < this.orbiters.length; i++){
+    this.orbiters[i].run();
+  }
+  //this.orbiter.run();
+}
