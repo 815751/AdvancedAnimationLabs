@@ -30,7 +30,6 @@ function loadMoverss(n) {
         let d = Math.random() * 5 + 5;
         movers[i] = new Mover(x, y, dx, dy, 15);
     }
-    attr = new Mover(0, 0, 20, false);
 }
 
 // move the circle to a new location

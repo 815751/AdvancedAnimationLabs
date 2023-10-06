@@ -9,9 +9,10 @@ function Mover(x, y, dx, dy, diam) {
   this.loc = new JSVector(x, y);
   this.numOrbiters = 4;
   this.orbiters = [];
-  // for (let i = 0; i < this.numOrbiters; i++) {
-  this.orbiters.push(new Orbiter(this));
-  // }
+   for (let i = 0; i < this.numOrbiters; i++) {
+  this.orbiters.push(new Orbiter(this, i * (2*Math.PI) / this.numOrbiters ));
+  }
+  this.orbiter = new Orbiter(this, );
 }
 
 Mover.prototype.run = function () {
@@ -19,6 +20,7 @@ Mover.prototype.run = function () {
   this.update();
   this.checkEdges();
   this.render();
+  this.runOrbiters();
 
 }
 
@@ -53,3 +55,9 @@ Mover.prototype.update = function () {
   this.loc.add(this.vel)
 }
 
+Mover.prototype.runOrbiters = function() {
+  for (let i = 0; i < this.orbiters.length; i++){
+    this.orbiters[i].run();
+  }
+  //this.orbiter.run();
+}
