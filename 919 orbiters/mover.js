@@ -7,7 +7,7 @@ function Mover(x, y, dx, dy, diam) {
   this.acc = new JSVector();
   this.vel = new JSVector(dx, dy);
   this.loc = new JSVector(x, y);
-  this.numOrbiters = 4;
+  this.numOrbiters = 3;
   this.orbiters = [];
    for (let i = 0; i < this.numOrbiters; i++) {
   this.orbiters.push(new Orbiter(this, i * (2*Math.PI) / this.numOrbiters ));
@@ -49,8 +49,8 @@ Mover.prototype.checkEdges = function () {
 Mover.prototype.render = function () {
   context.beginPath();
   context.arc(this.loc.x,this.loc.y, 10, 0, 2 * Math.PI);
-  context.strokeStyle = "rgba(170,255,57)";
-  context.fillStyle = "rgba(170,255,57)";
+  context.strokeStyle = "rgba(255,255,57)";
+  context.fillStyle = "rgba(255,255,57)";
   context.fill();
   context.stroke();
 }
