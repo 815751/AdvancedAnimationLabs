@@ -119,3 +119,17 @@ JSVector.prototype.copy = function(){
 JSVector.prototype.toString = function() {
    
 }
+JSVector.prototype.attraction = function(v2, attrRate) {
+  let dx = v2.x - this.x;
+  let dy = v2.y - this.y;
+  let angle = Math.atan2(dy, dx);
+
+  this.x += Math.cos(angle) * attrRate;
+  this.y += Math.sin(angle) * attrRate;
+}
+JSVector.prototype.orbit = function(angle, angVel, radius, sun){
+  angle += angVel;
+  let xDisplacement = radius * Math.cos(angle);
+  let yDisplacement = radius * Math.sin(angle);
+  this.loc = new JSVector(sun.loc.x + xDisplacement, sun.loc.y + yDisplacement)
+}

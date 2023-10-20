@@ -11,6 +11,7 @@ function Orbiter(parent, angle) {
   this.displacement = new JSVector(this.radius * Math.cos(this.angle), this.radius * Math.sin(this.angle))
   this.xDisplacement = this.radius * Math.cos(this.angle);
   this.yDisplacement = this.radius * Math.sin(this.angle);
+  this.loc = new JSVector(0,0);
     }
    
     //  placing methods in the prototype (every ball shares functions)
@@ -36,9 +37,13 @@ function Orbiter(parent, angle) {
     //  update bubble every animation frame
     Orbiter.prototype.update = function () {
       //this.loc = new JSVector addGetNew(this.displacement, this.parent.loc);
-      this.angle += this.angVel;
+/*      this.angle += this.angVel;
       this.xDisplacement = this.radius * Math.cos(this.angle);
   this.yDisplacement = this.radius * Math.sin(this.angle);
   this.loc = new JSVector(this.parent.loc.x + this.xDisplacement, this.parent.loc.y + this.yDisplacement)
+  */
+      this.loc.orbit(this.angle, this.angVel, this.radius, this.parent);
+      
+ //JSVector.prototype.orbit = function(angle, angVel, radius, sun){
     }
   
