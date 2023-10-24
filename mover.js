@@ -7,7 +7,7 @@ function Mover(x, y, dx, dy, diam) {
   this.acc = new JSVector();
   this.vel = new JSVector(dx, dy);
   this.loc = new JSVector(x, y);
-  this.numOrbiters = 4;
+  this.numOrbiters = 5;
   this.orbiters = [];
    for (let i = 0; i < this.numOrbiters; i++) {
   this.orbiters.push(new Orbiter(this, i * (2*Math.PI) / this.numOrbiters ));

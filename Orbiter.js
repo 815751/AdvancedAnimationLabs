@@ -11,12 +11,14 @@ this.aAcceleration = 0;
 this.displacement = new JSVector(this.radius * Math.cos(this.angle), this.radius * Math.sin(this.angle))
 this.xDisplacement = this.radius * Math.cos(this.angle);
 this.yDisplacement = this.radius * Math.sin(this.angle);
+this.lifeSpan = 255;
   }
   
   //  placing methods in the prototype (every ball shares functions)
   Orbiter.prototype.run = function () {
     this.update();
   this.render();
+  this.lifeSpan--;
 
   }
   
@@ -26,8 +28,8 @@ this.yDisplacement = this.radius * Math.sin(this.angle);
   Orbiter.prototype.render = function () {
     context.beginPath();
     context.arc(this.loc.x,this.loc.y, 5, 0, 2 * Math.PI);
-    context.strokeStyle = "rgba(255,0,0)";
-    context.fillStyle = "rgba(255,0,0)";
+    context.strokeStyle = "rgba(255,25,100)";
+    context.fillStyle = "rgba(255,100,0, 255, this.lifeSpan)";
     context.fill();
     context.stroke();
   }
