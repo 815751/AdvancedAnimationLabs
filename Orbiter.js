@@ -36,9 +36,10 @@ this.lifeSpan = 255;
   
   //  update bubble every animation frame
   Orbiter.prototype.update = function () {
+
     //this.loc = new JSVector addGetNew(this.displacement, this.parent.loc);
     this.angle += this.angVel;
     this.xDisplacement = this.radius * Math.cos(this.angle);
 this.yDisplacement = this.radius * Math.sin(this.angle);
 this.loc = new JSVector(this.parent.loc.x + this.xDisplacement, this.parent.loc.y + this.yDisplacement)
-  }
+}

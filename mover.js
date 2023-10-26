@@ -57,7 +57,11 @@ Mover.prototype.update = function () {
 
 Mover.prototype.runOrbiters = function() {
   for (let i = 0; i < this.orbiters.length; i++){
+    if(this.orbiters[i].lifeSpan == 0){
+      this.orbiters.splice(i, 1);
+    }else{
     this.orbiters[i].run();
   }
+}
   //this.orbiter.run();
 }
