@@ -1,23 +1,17 @@
+//Lab 1023 - 23: World bigger than Canvas
+//Oct. 23, 2023
+//Student Code
 
-// wait for the page to finish loading with init as the callback
-window.addEventListener("load", init);
-
-// global variables
-var canvas, context, x, y, dx, dy;
+//Global
+let world;
+window.onload = init;
 
 function init(){
-    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement
-    canvas = document.getElementById("cnv");
-    // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
-    context = canvas.getContext("2d");
-
-    animate();      // kick off the animation
+    world = new World();
+    animate();
 }
 
-// every animation cycle
-function animate() {
-
-    requestAnimationFrame(animate); // next cycle
+function animate(){
+  world.run();
+  requestAnimationFrame(animate);
 }
-
-// move the circle to a new location
