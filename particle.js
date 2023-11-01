@@ -1,5 +1,5 @@
 //  Bubble constructor function +++++++++++++++++++++++++++++
-function Orbiter(parent, angle) {
+function Particle(parent, angle) {
 
     this.parent = parent;
     this.radius =  25;
@@ -15,7 +15,7 @@ function Orbiter(parent, angle) {
       }
       
       //  placing methods in the prototype (every ball shares functions)
-      Orbiter.prototype.run = function () {
+      Particle.prototype.run = function () {
         this.update();
       this.render();
       this.lifeSpan--;
@@ -25,7 +25,7 @@ function Orbiter(parent, angle) {
       
       
       // renders a bubble to the canvas
-      Orbiter.prototype.render = function () {
+      Particle.prototype.render = function () {
         context.beginPath();
         context.arc(this.loc.x,this.loc.y, 5, 0, 2 * Math.PI);
         context.strokeStyle = "rgba(255,25,100)";
@@ -35,7 +35,7 @@ function Orbiter(parent, angle) {
       }
       
       //  update bubble every animation frame
-      Orbiter.prototype.update = function () {
+      Particle.prototype.update = function () {
     
         //this.loc = new JSVector addGetNew(this.displacement, this.parent.loc);
         this.angle += this.angVel;
