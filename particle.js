@@ -22,7 +22,7 @@ function Particle(parent, angle) {
     
       }
       
-      
+      //it's not letting me do antthing
       
       // renders a bubble to the canvas
       Particle.prototype.render = function () {
