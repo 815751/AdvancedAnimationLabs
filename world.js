@@ -14,7 +14,7 @@ function World() {
     bottom: 1500,
     right: 2000,
     width: 4000,
-    height: 3000
+    height: 3000000
   }
 
   this.movers = [];
